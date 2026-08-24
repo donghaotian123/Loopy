@@ -231,6 +231,12 @@
       background: #ffffff;
     }
 
+    /* Tiles reserve their box before the clip arrives, so a tint reads better
+       than a white gap while the video is still off screen. */
+    .card video:not([data-loaded]) {
+      background: #eaeff7;
+    }
+
     .card-content {
       padding: 16px;
     }
@@ -368,8 +374,10 @@
       <div class="project-title">
         <img
           class="project-logo"
-          src="assets/loopy-logo.apng"
+          src="assets/loopy-logo.webp"
           alt="Animated Loopy logo"
+          fetchpriority="high"
+          decoding="async"
         >
         <h1>Loopy</h1>
       </div>
@@ -434,7 +442,8 @@
           class="wide-media overview-media"
           src="assets/Teaser.png"
           alt="Overview of Loopy applications and controllable looping video generation"
-          loading="eager"
+          loading="lazy"
+          decoding="async"
         >
       </div>
     </section>
@@ -445,22 +454,22 @@
 
         <div class="comparison-gallery">
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata" aria-label="SIGA looping video result">
-              <source src="assets/siga/siga.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video aria-label="SIGA looping video result">
+              <source data-src="assets/siga/siga.mp4" type="video/mp4">
             </video>
             <!-- <h3 class="comparison-label">SIGA</h3> -->
           </article>
 
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata" aria-label="ZiMu looping video result">
-              <source src="assets/siga/zimu.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video aria-label="ZiMu looping video result">
+              <source data-src="assets/siga/zimu.mp4" type="video/mp4">
             </video>
             <!-- <h3 class="comparison-label"></h3> -->
           </article>
 
           <article class="card comparison-card ours">
-            <video autoplay muted loop playsinline preload="metadata" aria-label="Loopy looping video result">
-              <source src="assets/siga/loopy.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video aria-label="Loopy looping video result">
+              <source data-src="assets/siga/loopy.mp4" type="video/mp4">
             </video>
             <!-- <h3 class="comparison-label">
               Loopy <span class="ours-badge">Ours</span>
@@ -472,8 +481,8 @@
 
         <div class="gallery">
           <article class="card prompt-card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/case/fengniao.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/case/fengniao.mp4" type="video/mp4">
             </video>
             <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> A hummingbird hovers in front of a trumpet flower, its wings beating into a blur, while its long beak repeatedly dips into the flower's heart to sip nectar. Realistic style.</p>
@@ -481,8 +490,8 @@
           </article>
 
           <article class="card prompt-card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/case/fgr.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/case/fgr.mp4" type="video/mp4">
             </video>
             <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> A block of butter rapidly melts and slides on a hot frying pan, with delicate bubbles forming around the edges. Realistic style.</p>
@@ -490,8 +499,8 @@
           </article>
 
           <article class="card prompt-card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/case/fgr-2.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/case/fgr-2.mp4" type="video/mp4">
             </video>
             <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> A tranquil lake reflects snow-capped mountains and sunset glow, with ripples spreading across the water as clouds slowly shift in the sky. Realistic style. Wide shot.</p>
@@ -499,8 +508,8 @@
           </article>
 
           <article class="card prompt-card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/case/fgr-3.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/case/fgr-3.mp4" type="video/mp4">
             </video>
             <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> A female warrior faces the camera, holding a long sword with both hands raised overhead, then swings it down, her long black hair lifted by the sword's wind. Realistic style.</p>
@@ -508,8 +517,8 @@
           </article>
 
           <article class="card prompt-card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/case/human.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/case/human.mp4" type="video/mp4">
             </video>
             <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> A silver-haired elderly man faces the camera, tilts his head back laughing, then lowers it to wipe tears, his beard trembling with laughter. Realistic style.</p>
@@ -517,8 +526,8 @@
           </article>
 
           <article class="card prompt-card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/case/jiguang.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/case/jiguang.mp4" type="video/mp4">
             </video>
             <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> Auroras dance across the night sky, with green and purple light bands swirling like silk, while snow-capped mountain silhouettes stand silently. Wide shot.</p>
@@ -526,8 +535,8 @@
           </article>
 
           <article class="card prompt-card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/case/jihe.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/case/jihe.mp4" type="video/mp4">
             </video>
             <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> Geometric shapes rhythmically grow, transform, and recombine on screen, with colors transitioning between cool and warm tones. Modern style. Medium shot.</p>
@@ -535,8 +544,8 @@
           </article>
 
           <article class="card prompt-card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/case/man.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/case/man.mp4" type="video/mp4">
             </video>
             <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> A male boxer faces the camera throwing continuous straight punches and hooks, sweat and saliva splattering across the lens. Realistic style.</p>
@@ -544,8 +553,8 @@
           </article>
 
           <article class="card prompt-card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/case/shayu.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/case/shayu.mp4" type="video/mp4">
             </video>
             <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> A shark's tail fin swings powerfully left and right as its body moves steadily forward through blue water. Realistic style.</p>
@@ -553,8 +562,8 @@
           </article>
 
           <article class="card prompt-card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/case/singer.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/case/singer.mp4" type="video/mp4">
             </video>
             <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> A soprano in a golden opera gown faces the camera, mouth open singing loudly, chest heaving and gown trembling. Realistic style.</p>
@@ -562,8 +571,8 @@
           </article>
 
           <article class="card prompt-card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/case/taoni.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/case/taoni.mp4" type="video/mp4">
             </video>
             <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> A potter presses and rotates a clay form with both hands, wet clay slowly rising and shaping between the fingers. Realistic style.</p>
@@ -571,8 +580,8 @@
           </article>
 
           <article class="card prompt-card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/case/tiqin.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/case/tiqin.mp4" type="video/mp4">
             </video>
             <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> A male violinist faces the camera with eyes closed, drawing the bow forcefully, his hair and upper body swaying dramatically with the performance. Realistic style.</p>
@@ -580,8 +589,8 @@
           </article>
 
           <article class="card prompt-card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/case/turtle.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/case/turtle.mp4" type="video/mp4">
             </video>
             <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> A hawksbill turtle slowly flaps its front flippers, swimming through a turquoise coral sea, with bubbles continuously rising from its shell. Realistic style.</p>
@@ -589,8 +598,8 @@
           </article>
 
           <article class="card prompt-card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/case/weinisi.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/case/weinisi.mp4" type="video/mp4">
             </video>
             <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> A Venetian masked dancer faces the camera, repeatedly covering and uncovering her face with a black mask, feathered cape fluttering wildly. Realistic style.</p>
@@ -602,14 +611,14 @@
 
         <div class="gallery">
           <article class="card prompt-card rgba-card">
-            <img src="assets/rgba/i2v-2.apng" alt="RGBA looping video result">
+            <img loading="lazy" decoding="async" src="assets/rgba/i2v-2.webp" alt="RGBA looping video result">
             <!-- <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> To be added.</p>
             </div> -->
           </article>
 
           <article class="card prompt-card rgba-card">
-            <img src="assets/rgba/loopy-alpha-fur.apng" alt="RGBA looping video result">
+            <img loading="lazy" decoding="async" src="assets/rgba/loopy-alpha-fur.webp" alt="RGBA looping video result">
             <!-- <div class="card-content">
               <p class="prompt prompt-placeholder"><span class="prompt-label">Prompt:</span> To be added.</p>
             </div> -->
@@ -626,42 +635,42 @@
 
         <div class="character-gallery">
           <article class="card rgba-card">
-            <img src="assets/ip/loopy/loopy-1.apng" alt="Loopy character reference">
+            <img loading="lazy" decoding="async" src="assets/ip/loopy/loopy-1.webp" alt="Loopy character reference">
           </article>
           <article class="card rgba-card">
-            <img src="assets/ip/loopy/loopy-4.apng" alt="Loopy character reference">
+            <img loading="lazy" decoding="async" src="assets/ip/loopy/loopy-4.webp" alt="Loopy character reference">
           </article>
           <article class="card rgba-card">
-            <img src="assets/ip/loopy/loopy-6.apng" alt="Loopy character reference">
+            <img loading="lazy" decoding="async" src="assets/ip/loopy/loopy-6.webp" alt="Loopy character reference">
           </article>
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/ip/loopy/fgr.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/ip/loopy/fgr.mp4" type="video/mp4">
             </video>
           </article>
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/ip/loopy/fgr-2.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/ip/loopy/fgr-2.mp4" type="video/mp4">
             </video>
           </article>
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/ip/loopy/fgr-3.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/ip/loopy/fgr-3.mp4" type="video/mp4">
             </video>
           </article>
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/ip/loopy/fgr-4.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/ip/loopy/fgr-4.mp4" type="video/mp4">
             </video>
           </article>
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/ip/loopy/fgr-5.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/ip/loopy/fgr-5.mp4" type="video/mp4">
             </video>
           </article>
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/ip/loopy/fgr-6.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/ip/loopy/fgr-6.mp4" type="video/mp4">
             </video>
           </article>
         </div>
@@ -670,42 +679,42 @@
 
         <div class="character-gallery">
           <article class="card rgba-card">
-            <img src="assets/ip/keji/keji-2.apng" alt="Welsh Corgi character reference">
+            <img loading="lazy" decoding="async" src="assets/ip/keji/keji-2.webp" alt="Welsh Corgi character reference">
           </article>
           <article class="card rgba-card">
-            <img src="assets/ip/keji/keji-5.apng" alt="Welsh Corgi character reference">
+            <img loading="lazy" decoding="async" src="assets/ip/keji/keji-5.webp" alt="Welsh Corgi character reference">
           </article>
           <article class="card rgba-card">
-            <img src="assets/ip/keji/keji-6.apng" alt="Welsh Corgi character reference">
+            <img loading="lazy" decoding="async" src="assets/ip/keji/keji-6.webp" alt="Welsh Corgi character reference">
           </article>
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/ip/keji/fgr.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/ip/keji/fgr.mp4" type="video/mp4">
             </video>
           </article>
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/ip/keji/fgr-2.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/ip/keji/fgr-2.mp4" type="video/mp4">
             </video>
           </article>
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/ip/keji/fgr-3.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/ip/keji/fgr-3.mp4" type="video/mp4">
             </video>
           </article>
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/ip/keji/fgr-4.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/ip/keji/fgr-4.mp4" type="video/mp4">
             </video>
           </article>
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/ip/keji/fgr-5.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/ip/keji/fgr-5.mp4" type="video/mp4">
             </video>
           </article>
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/ip/keji/fgr-6.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/ip/keji/fgr-6.mp4" type="video/mp4">
             </video>
           </article>
         </div>
@@ -724,13 +733,13 @@
             </p>
           </article>
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/bianmu/fgr.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/bianmu/fgr.mp4" type="video/mp4">
             </video>
           </article>
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/bianmu/fgr2.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/bianmu/fgr2.mp4" type="video/mp4">
             </video>
           </article>
         </div>
@@ -743,19 +752,19 @@
 
         <div class="style-gallery">
           <article class="card rgba-card">
-            <img src="assets/style/game/demo.apng" alt="Game Art style control result">
+            <img loading="lazy" decoding="async" src="assets/style/game/demo.webp" alt="Game Art style control result">
             <h3 class="comparison-label">Game Art</h3>
           </article>
           <article class="card rgba-card">
-            <img src="assets/style/game/demo-2.apng" alt="Game Art style control result">
+            <img loading="lazy" decoding="async" src="assets/style/game/demo-2.webp" alt="Game Art style control result">
             <h3 class="comparison-label">Game Art</h3>
           </article>
           <article class="card rgba-card">
-            <img src="assets/style/3d/demo.apng" alt="3D Cartoon style control result">
+            <img loading="lazy" decoding="async" src="assets/style/3d/demo.webp" alt="3D Cartoon style control result">
             <h3 class="comparison-label">3D Cartoon</h3>
           </article>
           <article class="card rgba-card">
-            <img src="assets/style/3d/demo-2.apng" alt="3D Cartoon style control result">
+            <img loading="lazy" decoding="async" src="assets/style/3d/demo-2.webp" alt="3D Cartoon style control result">
             <h3 class="comparison-label">3D Cartoon</h3>
           </article>
         </div>
@@ -768,20 +777,20 @@
 
         <div class="comparison-gallery">
           <article class="card rgba-card">
-            <img src="assets/multi/foreground.apng" alt="Transparent foreground layer">
+            <img loading="lazy" decoding="async" src="assets/multi/foreground.webp" alt="Transparent foreground layer">
             <h3 class="comparison-label">Foreground</h3>
           </article>
 
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/multi/bgr.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/multi/bgr.mp4" type="video/mp4">
             </video>
             <h3 class="comparison-label">Background</h3>
           </article>
 
           <article class="card">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="assets/multi/composited.mp4" type="video/mp4">
+            <video muted loop playsinline preload="none" data-lazy-video>
+              <source data-src="assets/multi/composited.mp4" type="video/mp4">
             </video>
             <h3 class="comparison-label">Composited Result</h3>
           </article>
@@ -806,5 +815,58 @@
     © 2026 Loopy Project. All Rights Reserved.
   </footer>
 
+  <script>
+    // <video> has no loading="lazy", so without this every clip on the page is
+    // fetched at once and the tiles below the fold queue behind the ones above.
+    (function () {
+      var videos = document.querySelectorAll('video[data-lazy-video]');
+
+      function load(video) {
+        if (video.dataset.loaded) {
+          return;
+        }
+        var sources = video.querySelectorAll('source[data-src]');
+        for (var i = 0; i < sources.length; i++) {
+          sources[i].src = sources[i].dataset.src;
+          sources[i].removeAttribute('data-src');
+        }
+        video.dataset.loaded = '1';
+        video.load();
+      }
+
+      function play(video) {
+        var attempt = video.play();
+        if (attempt) {
+          attempt.catch(function () {});
+        }
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        for (var i = 0; i < videos.length; i++) {
+          load(videos[i]);
+          play(videos[i]);
+        }
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var video = entry.target;
+          if (entry.isIntersecting) {
+            load(video);
+            play(video);
+          } else if (video.dataset.loaded) {
+            // Decoding three dozen loops that nobody is looking at burns
+            // battery on laptops and phones.
+            video.pause();
+          }
+        });
+      }, { rootMargin: '300px 0px' });
+
+      for (var j = 0; j < videos.length; j++) {
+        observer.observe(videos[j]);
+      }
+    })();
+  </script>
 </body>
 </html>
